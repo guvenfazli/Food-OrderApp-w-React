@@ -31,7 +31,7 @@ export default function Meals(){
         
         <li className="meal-item" key={meal.id}>
             <article>
-              <img src="" alt="" />
+              <img src={`http://localhost:3000/${meal.image}`} alt={`${meal.name} photo`} />
               <h3>{meal.name}</h3>
               <h4 className="meal-item-price">${meal.price}</h4>
               <p className="meal-item-description">{meal.description}</p>
