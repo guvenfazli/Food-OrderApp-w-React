@@ -38,6 +38,10 @@ body {
 #main-header button {
   font-size: 1.5rem;
   font-family: 'Lato', sans-serif;
+  color: #ffc404;
+  border: none;
+  background: none;
+  cursor: pointer;
 }
 
 h1 {

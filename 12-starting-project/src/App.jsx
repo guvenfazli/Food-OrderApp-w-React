@@ -1,4 +1,5 @@
 import logo from './assets/logo.jpg'
+import Meals from './Components/Meals';
 
 
 function App() {
@@ -8,7 +9,11 @@ function App() {
         <div id='title'>
           <img src={logo} alt="app-logo" id='' /> <h1>REACTFOOD</h1>
         </div>
+
+        <button>Cart</button>
       </div>
+
+      <Meals />
     </>
   );
 }
