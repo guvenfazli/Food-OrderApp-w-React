@@ -6,10 +6,10 @@ export async function fetchingData(){
     throw new Error('Could not fetch meals!')
   }
 
-  console.log('selam')
+  
   return data
 } 
 
-fetchingData();
+
 
 
