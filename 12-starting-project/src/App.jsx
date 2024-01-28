@@ -1,4 +1,5 @@
 import logo from './assets/logo.jpg'
+import {fetchingData} from './utils/fetch'
 import Meals from './Components/Meals';
 
 
