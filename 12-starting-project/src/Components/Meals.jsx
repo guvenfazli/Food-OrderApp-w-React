@@ -33,7 +33,7 @@ export default function Meals(){
             <article>
               <img src="" alt="" />
               <h3>{meal.name}</h3>
-              <p className="meal-item-price">${meal.price}</p>
+              <h4 className="meal-item-price">${meal.price}</h4>
               <p className="meal-item-description">{meal.description}</p>
               <button className="button meal-item-actions">Add to Cart</button>
             </article>
