@@ -26,7 +26,22 @@ export default function Meals(){
     
     
     <ul id="meals">
-      {currentMeals.map((meal) => <li className="meal-item" key={meal.id}>{meal.name}</li>)}
+    
+      {currentMeals.map((meal) => 
+        
+        <li className="meal-item" key={meal.id}>
+            <article>
+              <img src="" alt="" />
+              <h3>{meal.name}</h3>
+              <p className="meal-item-price">${meal.price}</p>
+              <p className="meal-item-description">{meal.description}</p>
+              <button className="button meal-item-actions">Add to Cart</button>
+            </article>
+        </li>
+        )
+        
+      }
+    
     </ul>
   
   
