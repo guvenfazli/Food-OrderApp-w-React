@@ -1,9 +1,14 @@
+import logo from './assets/logo.jpg'
+
+
 function App() {
   return (
     <>
-      <h1>You got this 💪</h1>
-      <p>Stuck? Not sure how to proceed?</p>
-      <p>Don't worry - we've all been there. Let's build it together!</p>
+      <div id="main-header">
+        <div id='title'>
+          <img src={logo} alt="app-logo" id='' /> <h1>REACTFOOD</h1>
+        </div>
+      </div>
     </>
   );
 }
