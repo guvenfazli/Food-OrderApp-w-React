@@ -1,5 +1,5 @@
 export async function fetchingData(){
-  const response = await fetch('https:localhost:3000/meals')
+  const response = await fetch('http://localhost:3000/meals');
   const data = await response.json();
   
   if(!response.ok){
