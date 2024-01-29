@@ -2,12 +2,17 @@ import logo from './assets/logo.jpg'
 import Meals from './Components/Meals';
 import Cart from './Components/Cart';
 import Checkout from './Components/Checkout';
+import { useState } from 'react';
 
 
 function App() {
+
+  const [cart, setCart] = useState([])
+
+
   return (
     <>
-      <Cart />
+      <Cart items={cart}/>
       <Checkout />
       
       <div id="main-header">
@@ -18,8 +23,8 @@ function App() {
         <button>Cart</button>
       </div>
 
-      <Meals />
-      
+      <Meals cart={cart} addToCart={setCart}/>
+      {console.log(cart)}
     </>
   );
 }

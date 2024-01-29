@@ -3,7 +3,7 @@ import { useState, useEffect } from "react"
 
 
 
-export default function Meals(){
+export default function Meals({addToCart, cart}){
   
   const [currentMeals, setCurrentMeals] = useState([]);
   
@@ -20,7 +20,35 @@ export default function Meals(){
   
   }, [])
   
-  
+  function selectFood(id){
+    const selectedFood = currentMeals.find((food) => food.id === id)
+    selectedFood.quantity = 1
+    if (cart.some(food => food.id === selectedFood.id)) {
+      addToCart(prev => {
+        const updatedList = prev.map(food =>
+          food.id === selectedFood.id ? { ...food, quantity: food.quantity + 1 } : food
+        );
+        return updatedList;
+      });
+    } else {
+      addToCart(prev => {
+        const updatedList = [...prev, { ...selectedFood, quantity: 1 }];
+        return updatedList;
+      });
+    }
+    
+ 
+
+
+
+
+   
+
+ 
+
+    
+    
+  }
   
   return(
     
@@ -35,15 +63,18 @@ export default function Meals(){
               <h3>{meal.name}</h3>
               <h4 className="meal-item-price">${meal.price}</h4>
               <p className="meal-item-description">{meal.description}</p>
-              <button className="button meal-item-actions">Add to Cart</button>
+              <button className="button meal-item-actions" onClick={() => selectFood(meal.id)}>Add to Cart</button>
             </article>
         </li>
         )
         
       }
     
+    {console.log(cart)}
+
+     
     </ul>
   
-  
+    
   )
 }
