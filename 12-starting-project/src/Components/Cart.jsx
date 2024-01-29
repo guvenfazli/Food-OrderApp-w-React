@@ -57,7 +57,7 @@ export default function Cart({editCart, items, open, modalOption}){
     
 
       <div className="cart-total">
-        <h2>{total.toFixed(2)}</h2>
+        <h2>${total.toFixed(2)}</h2>
       </div>
 
       <div className="modal-actions">
