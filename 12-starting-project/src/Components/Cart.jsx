@@ -1,6 +1,6 @@
 export default function Cart(){
   return (
-    <dialog className="modal cart" open>
+    <dialog className="modal cart">
       <h2>Your Cart</h2>
         <ul>
 
