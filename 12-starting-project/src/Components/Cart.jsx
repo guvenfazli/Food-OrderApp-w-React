@@ -2,14 +2,21 @@ export default function Cart(){
   return (
     <dialog className="modal cart" open>
       <h2>Your Cart</h2>
-      <div className="cart-item cart-item-actions">
-        <ul className="cart-item-actions">
-          <p>selam</p>
-          <button>-</button>
-          <p>Quantity</p>
-          <button>+</button>
+        <ul>
+
+          <li className="cart-item">
+
+            <p>selam</p>
+
+            <div className="cart-item-actions">
+              <button>-</button>
+              <p>Quantity</p>
+              <button>+</button>
+            </div>
+          </li>
+
         </ul>
-      </div>
+    
 
       <div className="cart-total">
         <h2>$53.97</h2>
