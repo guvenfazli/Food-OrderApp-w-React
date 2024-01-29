@@ -20,7 +20,7 @@ function App() {
           <img src={logo} alt="app-logo" id='' /> <h1>REACTFOOD</h1>
         </div>
 
-        <button>Cart</button>
+        <button>Cart({cart.length})</button>
       </div>
 
       <Meals cart={cart} addToCart={setCart}/>
