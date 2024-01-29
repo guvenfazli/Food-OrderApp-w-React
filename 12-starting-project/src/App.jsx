@@ -13,7 +13,7 @@ function App() {
 
   return (
     <>
-      <Cart items={cart} open={cartOpen} modalOption={setCartOpen}/>
+      <Cart items={cart} open={cartOpen} modalOption={setCartOpen} editCart={setCart}/>
       <Checkout />
       
       <div id="main-header">
