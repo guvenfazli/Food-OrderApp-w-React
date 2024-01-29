@@ -7,6 +7,7 @@ export default function Checkout(){
       <h2>Checkout</h2>
       
       <p>Total Amnount</p>
+
       <form>
         <div className="control">
 
@@ -23,11 +24,19 @@ export default function Checkout(){
         </div>
         
         <div className="control-row">
-          <label htmlFor="zip-code">Postal Code</label>
-          <input type="text" name="zip-code" id="zip-code"/>
+         
+            <div className="control">
+              <label htmlFor="zip-code">Postal Code</label>
+              <input type="text" name="zip-code" id="zip-code"/>
+            </div>
+       
 
-          <label htmlFor="city">City</label>
-          <input type="text" name="city"/>
+            <div className="control">
+              <label htmlFor="city">City</label>
+              <input type="text" name="city" id="city"/>
+            </div>
+       
+
         </div>
         
       
