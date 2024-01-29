@@ -8,11 +8,12 @@ import { useState } from 'react';
 function App() {
 
   const [cart, setCart] = useState([])
+  const [cartOpen, setCartOpen] = useState(false)
 
 
   return (
     <>
-      <Cart items={cart}/>
+      <Cart items={cart} open={cartOpen} modalOption={setCartOpen}/>
       <Checkout />
       
       <div id="main-header">
@@ -20,11 +21,11 @@ function App() {
           <img src={logo} alt="app-logo" id='' /> <h1>REACTFOOD</h1>
         </div>
 
-        <button>Cart({cart.length})</button>
+        <button onClick={() => setCartOpen(prev => !prev)}>Cart({cart.length})</button>
       </div>
 
       <Meals cart={cart} addToCart={setCart}/>
-      {console.log(cart)}
+      {cart.map((row) => <p>{row.name}</p>)}
     </>
   );
 }
