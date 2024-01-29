@@ -2,7 +2,7 @@ export default function Checkout(){
   
   return (
       
-    <dialog className="modal" open>
+    <dialog className="modal">
       
       <h2>Checkout</h2>
       
