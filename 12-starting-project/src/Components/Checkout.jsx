@@ -4,12 +4,17 @@ export default function Checkout({open, modalOption, items, editCart}){
   
   const [order, setOrder] = useState({})
 
+  let totalPrice = items.map((item) => +(item.price) * +(item.quantity))
+  let total = totalPrice.reduce(function(accumulator, currentValue){
+    return accumulator + currentValue;
+  }, 0)
+
   function giveOrder(event){
     event.preventDefault()
     const fd = new FormData(event.target);
     const order = Object.fromEntries(fd.entries());
     setOrder(() => {
-      let updatedList = {customer: order, items: items}
+      let updatedList = {customer: order, items: items, total: `$${total.toFixed(2)}`}
       return updatedList;
     })
     modalOption(false)
@@ -24,7 +29,7 @@ export default function Checkout({open, modalOption, items, editCart}){
       
       <h2>Checkout</h2>
       
-      <p>Total Amnount</p>
+      <p>Total Amnount ${total.toFixed(2)}</p>
 
       <form onSubmit={giveOrder}>
         <div className="control">

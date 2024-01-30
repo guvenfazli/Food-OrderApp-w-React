@@ -5,11 +5,17 @@ import Checkout from './Components/Checkout';
 import { useState } from 'react';
 
 
+
+
 function App() {
 
   const [cart, setCart] = useState([])
   const [cartOpen, setCartOpen] = useState(false)
   const [orderSection, setOrderSection] = useState(false)
+
+
+
+  
 
 
   return (
@@ -27,6 +33,8 @@ function App() {
 
       <Meals cart={cart} addToCart={setCart}/>
       {cart.map((row) => <p>{row.name}</p>)}
+ 
+      
     </>
   );
 }
