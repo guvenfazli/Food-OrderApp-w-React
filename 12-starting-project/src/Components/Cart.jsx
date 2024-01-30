@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function Cart({editCart, items, open, modalOption}){
+export default function Cart({editCart, items, open, modalOption, checkOutOption}){
 
   
   let totalPrice = items.map((item) => +(item.price) * +(item.quantity))
@@ -31,8 +31,11 @@ export default function Cart({editCart, items, open, modalOption}){
       }
     }
 
-    
- 
+  }
+
+  function proceedToCheckOut(){
+    modalOption(false)
+    checkOutOption(true)
   }
 
 
@@ -62,7 +65,7 @@ export default function Cart({editCart, items, open, modalOption}){
 
       <div className="modal-actions">
         <button className="text-button" onClick={() => modalOption(open => !open)}>Close</button>
-        <button className="button" onClick={() => modalOption(open => !open)}>Go to Checkout</button>
+        <button className="button" onClick={proceedToCheckOut}>Go to Checkout</button>
       </div>
     </dialog>
   )

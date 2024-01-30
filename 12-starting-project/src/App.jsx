@@ -9,12 +9,13 @@ function App() {
 
   const [cart, setCart] = useState([])
   const [cartOpen, setCartOpen] = useState(false)
+  const [orderSection, setOrderSection] = useState(false)
 
 
   return (
     <>
-      <Cart items={cart} open={cartOpen} modalOption={setCartOpen} editCart={setCart}/>
-      <Checkout />
+      <Cart items={cart} open={cartOpen} modalOption={setCartOpen} editCart={setCart} checkOut={orderSection} checkOutOption={setOrderSection}/>
+      <Checkout open={orderSection} modalOption={setOrderSection}/>
       
       <div id="main-header">
         <div id='title'>

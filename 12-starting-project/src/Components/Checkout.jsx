@@ -1,14 +1,21 @@
-export default function Checkout(){
+export default function Checkout({open, modalOption}){
   
+  function giveOrder(event){
+    event.preventDefault()
+  }
+
+
+
+
   return (
       
-    <dialog className="modal">
+    <dialog className="modal" open={open}>
       
       <h2>Checkout</h2>
       
       <p>Total Amnount</p>
 
-      <form>
+      <form onSubmit={(event) => giveOrder(event)}>
         <div className="control">
 
 
@@ -43,8 +50,8 @@ export default function Checkout(){
 
 
         <div className="modal-actions">
-          <button className="text-button">Close</button>
-          <button className="button">Go to Checkout</button>
+          <button className="text-button" onClick={() => modalOption(false)}>Close</button>
+          <button className="button">Submit Order</button>
         </div>
       </form>
     </dialog>
