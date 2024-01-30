@@ -4,7 +4,11 @@ import Cart from './Components/Cart';
 import Checkout from './Components/Checkout';
 import { useState } from 'react';
 
-
+const denemeList = [
+  {name: 'Güven', country: 'Spain', age: 25},
+  {name: 'Leila', country: 'Spain', age: 21},
+  {name: 'Onur', country: 'Germany', age: 25}
+]
 
 
 function App() {
@@ -13,7 +17,8 @@ function App() {
   const [cartOpen, setCartOpen] = useState(false)
   const [orderSection, setOrderSection] = useState(false)
 
-
+  const chosen = denemeList.map((row) => row)
+  console.log(chosen)
 
   
 
