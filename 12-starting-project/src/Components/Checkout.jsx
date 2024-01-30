@@ -9,7 +9,7 @@ export default function Checkout({open, modalOption, items, editCart}){
     const fd = new FormData(event.target);
     const order = Object.fromEntries(fd.entries());
     setOrder(() => {
-      let updatedList = {order: order, products: items}
+      let updatedList = {customer: order, items: items}
       return updatedList;
     })
     modalOption(false)
@@ -37,7 +37,7 @@ export default function Checkout({open, modalOption, items, editCart}){
           <input type="email" name="email" />
 
           <label htmlFor="street">Street</label>
-          <input type="text" />
+          <input type="text" name="street"/>
           
         </div>
         
