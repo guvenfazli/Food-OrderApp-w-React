@@ -1,10 +1,21 @@
-export default function Checkout({open, modalOption}){
+import { useState } from "react";
+
+export default function Checkout({open, modalOption, items, editCart}){
   
+  const [order, setOrder] = useState({})
+
   function giveOrder(event){
     event.preventDefault()
+    const fd = new FormData(event.target);
+    const order = Object.fromEntries(fd.entries());
+    setOrder(() => {
+      let updatedList = {order: order, products: items}
+      return updatedList;
+    })
+    modalOption(false)
   }
 
-
+  console.log(order)
 
 
   return (
@@ -15,7 +26,7 @@ export default function Checkout({open, modalOption}){
       
       <p>Total Amnount</p>
 
-      <form onSubmit={(event) => giveOrder(event)}>
+      <form onSubmit={giveOrder}>
         <div className="control">
 
 
@@ -51,7 +62,7 @@ export default function Checkout({open, modalOption}){
 
         <div className="modal-actions">
           <button className="text-button" onClick={() => modalOption(false)}>Close</button>
-          <button className="button">Submit Order</button>
+          <button className="button" onSubmit={giveOrder}>Submit Order</button>
         </div>
       </form>
     </dialog>

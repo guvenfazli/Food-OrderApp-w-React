@@ -15,7 +15,7 @@ function App() {
   return (
     <>
       <Cart items={cart} open={cartOpen} modalOption={setCartOpen} editCart={setCart} checkOut={orderSection} checkOutOption={setOrderSection}/>
-      <Checkout open={orderSection} modalOption={setOrderSection}/>
+      <Checkout open={orderSection} modalOption={setOrderSection} items={cart} editCart={setCart}/>
       
       <div id="main-header">
         <div id='title'>
