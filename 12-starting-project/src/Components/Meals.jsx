@@ -36,18 +36,7 @@ export default function Meals({addToCart, cart}){
         return updatedList;
       });
     }
-    
- 
-
-
-
-
-   
-
- 
-
-    
-    
+  
   }
   
   return(
