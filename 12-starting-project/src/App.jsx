@@ -35,7 +35,7 @@ function App() {
         <button onClick={() => setCartOpen(prev => !prev)}>Cart({cart.length})</button>
       </div>
 
-      <Meals cart={cart} addToCart={setCart} checkOut={orderSection}/>
+      <Meals cart={cart} addToCart={setCart}/>
       
 
     </>
