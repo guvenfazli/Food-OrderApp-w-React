@@ -70,7 +70,7 @@ const Meals = memo(function Meals({addToCart, cart, checkOut}){
     
   )
 }, (prevProps, nextProps) => {
-  return prevProps.checkOut === nextProps.checkOut;
+  return prevProps.addToCart === nextProps.addToCart;
 })
 
 export default Meals;
