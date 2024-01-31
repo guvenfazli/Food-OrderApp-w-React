@@ -38,7 +38,7 @@ function App() {
       </div>
 
       <Meals cart={cart} addToCart={setCart}/>
-      {cart.map((row) => <p>{row.name}</p>)}
+      
  
       
     </>
