@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 export async function fetchingData(){
   const response = await fetch('http://localhost:3000/meals');
   const data = await response.json();

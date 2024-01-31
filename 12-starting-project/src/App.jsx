@@ -27,6 +27,8 @@ function App() {
       <Cart items={cart} open={cartOpen} modalOption={setCartOpen} editCart={setCart} checkOut={orderSection} checkOutOption={setOrderSection}/>
       <Checkout open={orderSection} modalOption={setOrderSection} items={cart} editCart={setCart}/>
       
+   
+
       <div id="main-header">
         <div id='title'>
           <img src={logo} alt="app-logo"/> <h1>REACTFOOD</h1>
@@ -35,7 +37,8 @@ function App() {
         <button onClick={() => setCartOpen(prev => !prev)}>Cart({cart.length})</button>
       </div>
 
-      <Meals cart={cart} addToCart={setCart}/>
+
+      <Meals />
       
 
     </>

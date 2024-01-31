@@ -1,5 +1,6 @@
 import { fetchingData } from "../utils/fetch";
 import { useState, useEffect, memo } from "react"
+import Food from "./Food.jsx";
 
 
 
@@ -41,24 +42,20 @@ const Meals = memo(function Meals({addToCart, cart, checkOut}){
         return updatedList;
       });
     }
-  
+
+  }
+
+  function testFunction(){
+    setTestState(prev => prev += 1)
   }
   
   return(
     
-    
+    <>
     <ul id="meals">
       
       {mealLoading ? <div className="loader-div"><span className="loader"></span></div> : currentMeals.map((meal) =>   
-        <li className="meal-item" key={meal.id}>
-            <article>
-              <img src={`http://localhost:3000/${meal.image}`} alt={`${meal.name} photo`} />
-              <h3>{meal.name}</h3>
-              <h4 className="meal-item-price">${meal.price}</h4>
-              <p className="meal-item-description">{meal.description}</p>
-              <button className="button meal-item-actions" onClick={() => selectFood(meal.id)}>Add to Cart</button>
-            </article>
-        </li>
+        <Food key={meal.id} {...meal}/>
         )}
 
 
@@ -66,8 +63,9 @@ const Meals = memo(function Meals({addToCart, cart, checkOut}){
 
      
     </ul>
-  
-    
+
+    <button onClick={testFunction}>Test Me Right now!</button>
+    </>
   )
 }, (prevProps, nextProps) => {
   return prevProps.cart === nextProps.cart;

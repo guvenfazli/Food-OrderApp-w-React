@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import {postingData} from '../utils/fetch.js'
 
+
 export default function Checkout({open, modalOption, items, editCart}){
   
   const [order, setOrder] = useState({})
@@ -37,7 +38,7 @@ export default function Checkout({open, modalOption, items, editCart}){
 
   }, [order])
 
-  console.log(order)
+  console.log('YES, THIS RENDERED AGAIN!')
 
   return (
       
