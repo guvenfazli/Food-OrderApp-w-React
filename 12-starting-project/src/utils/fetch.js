@@ -12,30 +12,29 @@ export async function fetchingData(){
 
 
 
-export async function postingData(orderData, items){
-  const response = fetch('http://localhost:3000/orders', {
+export async function postingData(orderData){
+  const response = await fetch('http://localhost:3000/orders', {
     method: 'POST',
     body: JSON.stringify({
-      order: orderData,
-      items: items
+      order: {
+        items: orderData.items,
+        customer: orderData.customer
+      }
     }),
     headers: {
-      'Content-type': 'application/json; charset=UTF-8'
+      'Content-Type': 'application/json'
     }
-  })
+  });
+
+  const createdOrder = await response.json()
+
+
+  if(!response.ok){
+    throw new Error('Could not send data to the server!')
+  }
+
   
+  return createdOrder.message;
 }
 
-fetch('https://jsonplaceholder.typicode.com/posts', {
-  method: 'POST',
-  body: JSON.stringify({
-    title: 'foo',
-    body: 'bar',
-    userId: 1,
-  }),
-  headers: {
-    'Content-type': 'application/json; charset=UTF-8',
-  },
-})
-  .then((response) => response.json())
-  .then((json) => console.log(json));
+

@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import {postingData} from '../utils/fetch.js'
 
 export default function Checkout({open, modalOption, items, editCart}){
   
@@ -12,13 +13,20 @@ export default function Checkout({open, modalOption, items, editCart}){
   function giveOrder(event){
     event.preventDefault()
     const fd = new FormData(event.target);
-    const order = Object.fromEntries(fd.entries());
+    const customerOrder = Object.fromEntries(fd.entries());
     setOrder(() => {
-      let updatedList = {customer: order, items: items, total: `$${total.toFixed(2)}`}
+      let updatedList = {customer: customerOrder, items: items, total: `$${total.toFixed(2)}`}
       return updatedList;
     })
     modalOption(false)
   }
+
+  useEffect(() => {
+    if(order.items){
+      postingData(order)
+    }
+
+  }, [order])
 
   console.log(order)
 

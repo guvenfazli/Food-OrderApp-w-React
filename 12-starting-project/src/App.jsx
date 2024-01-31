@@ -11,6 +11,7 @@ const denemeList = [
 ]
 
 
+
 function App() {
 
   const [cart, setCart] = useState([])

@@ -8,30 +8,33 @@ export default function Cart({editCart, items, open, modalOption, checkOutOption
     return accumulator + currentValue;
   }, 0)
 
-  function editQuantity(id, quantityOption){
+  function editQuantity(id, quantityOption, index){
     const sameFood = items.find((food) => food.id === id)
 
     if(quantityOption === ('+')){
-      if(items.some((foodId) => foodId.id === sameFood.id)){
         editCart((prev) => {
           const updatedList = prev.map(food =>
             food.id === sameFood.id ? { ...food, quantity: food.quantity + 1 } : food
           );
           return updatedList;
         })
-      }
+      
     } else if(quantityOption === ('-')){
-      if(items.some((foodId) => foodId.id === sameFood.id)){
         editCart((prev) => {
           const updatedList = prev.map(food =>
             food.id === sameFood.id ? { ...food, quantity: food.quantity - 1 } : food
           );
+
+          if(updatedList.some(food => food.quantity === 0)){
+            updatedList.splice(index, 1)
+          }
           return updatedList;
         })
-      }
     }
 
-  }
+    console.log(index)
+   
+  } 
 
   function proceedToCheckOut(){
     modalOption(false)
@@ -45,13 +48,13 @@ export default function Cart({editCart, items, open, modalOption, checkOutOption
     <dialog className="modal cart" open={open}>
       <h2>Your Cart</h2>
         <ul>
-          {items.map((item) => 
+          {items.map((item, index) => 
             <li key={item.id} className="cart-item">
               <p>{item.name} - {item.quantity} x ${item.price}</p>
               <div className="cart-item-actions">
-                <button onClick={() => editQuantity(item.id, '-')}>-</button>
+                <button onClick={() => editQuantity(item.id, '-', index)}>-</button>
                 <p>{item.quantity}</p>
-                <button onClick={() => editQuantity(item.id, '+')}>+</button>
+                <button onClick={() => editQuantity(item.id, '+', index)}>+</button>
               </div>
             </li>
           )}
