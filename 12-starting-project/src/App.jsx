@@ -17,7 +17,7 @@ function App() {
   const [cartOpen, setCartOpen] = useState(false)
   const [orderSection, setOrderSection] = useState(false)
 
-  const chosen = denemeList.map((row) => row)
+  const chosen = denemeList.map(row => row.country === 'Spain' ? {...row, isWorkerInSpain: 'yes', testWorked: 'Yes'} : row)
   console.log(chosen)
 
   
@@ -30,7 +30,7 @@ function App() {
       
       <div id="main-header">
         <div id='title'>
-          <img src={logo} alt="app-logo" id='' /> <h1>REACTFOOD</h1>
+          <img src={logo} alt="app-logo"/> <h1>REACTFOOD</h1>
         </div>
 
         <button onClick={() => setCartOpen(prev => !prev)}>Cart({cart.length})</button>
