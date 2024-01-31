@@ -18,10 +18,9 @@ function App() {
   const [cartOpen, setCartOpen] = useState(false)
   const [orderSection, setOrderSection] = useState(false)
 
-  const chosen = denemeList.map(row => row.country === 'Spain' ? {...row, isWorkerInSpain: 'yes', testWorked: 'Yes'} : row)
-  console.log(chosen)
+ 
 
-  
+
 
 
   return (
@@ -39,8 +38,7 @@ function App() {
 
       <Meals cart={cart} addToCart={setCart}/>
       
- 
-      
+
     </>
   );
 }

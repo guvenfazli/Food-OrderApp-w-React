@@ -6,15 +6,17 @@ import { useState, useEffect } from "react"
 export default function Meals({addToCart, cart}){
   
   const [currentMeals, setCurrentMeals] = useState([]);
+  const [mealLoading, setMealLoading] = useState(false)
   
   useEffect(() => {
    
     async function getData(){
-      
+      setMealLoading(true)
       const data = await fetchingData();
       setCurrentMeals(data)
+      setMealLoading(false)
+
       
-    
     }
 
     getData();
@@ -44,9 +46,8 @@ export default function Meals({addToCart, cart}){
     
     
     <ul id="meals">
-    
-      {currentMeals.map((meal) => 
-        
+      
+      {mealLoading ? <p>Meals are loading...</p> : currentMeals.map((meal) =>   
         <li className="meal-item" key={meal.id}>
             <article>
               <img src={`http://localhost:3000/${meal.image}`} alt={`${meal.name} photo`} />
@@ -56,9 +57,9 @@ export default function Meals({addToCart, cart}){
               <button className="button meal-item-actions" onClick={() => selectFood(meal.id)}>Add to Cart</button>
             </article>
         </li>
-        )
-        
-      }
+        )}
+
+
     
 
      
