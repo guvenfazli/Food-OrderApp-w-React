@@ -22,8 +22,8 @@ app.get('/meals', async (req, res) => {
 
 app.post('/orders', async (req, res) => {
   const orderData = req.body.order;
-
-  if (orderData === null || orderData.items === null || orderData.items === []) {
+  console.log(req.body)
+  if (orderData === null || orderData.items === null) {
     return res
       .status(400)
       .json({ message: 'Missing data.' });
@@ -36,8 +36,8 @@ app.post('/orders', async (req, res) => {
     orderData.customer.name.trim() === '' ||
     orderData.customer.street === null ||
     orderData.customer.street.trim() === '' ||
-    orderData.customer['postal-code'] === null ||
-    orderData.customer['postal-code'].trim() === '' ||
+    orderData.customer['zip-code'] === null ||
+    orderData.customer['zip-code'].trim() === '' ||
     orderData.customer.city === null ||
     orderData.customer.city.trim() === ''
   ) {

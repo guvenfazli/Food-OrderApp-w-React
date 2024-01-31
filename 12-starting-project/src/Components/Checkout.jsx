@@ -15,21 +15,20 @@ export default function Checkout({open, modalOption, items, editCart}){
     const fd = new FormData(event.target);
     const customerOrder = Object.fromEntries(fd.entries());
     setOrder(() => {
-      let updatedList = {customer: customerOrder, items: items, total: `$${total.toFixed(2)}`}
+      let updatedList = {customer: customerOrder, items: items, totalPrice: total}
       return updatedList;
     })
     modalOption(false)
   }
 
   useEffect(() => {
-    if(order.items){
+    if(order.items && order.customer){
       postingData(order)
     }
 
   }, [order])
 
   console.log(order)
-
 
   return (
       

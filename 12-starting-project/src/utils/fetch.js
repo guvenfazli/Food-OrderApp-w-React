@@ -37,4 +37,3 @@ export async function postingData(orderData){
   return createdOrder.message;
 }
 
-

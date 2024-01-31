@@ -32,7 +32,7 @@ export default function Cart({editCart, items, open, modalOption, checkOutOption
         })
     }
 
-    console.log(index)
+    
    
   } 
 

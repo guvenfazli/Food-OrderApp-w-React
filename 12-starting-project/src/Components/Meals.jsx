@@ -10,9 +10,10 @@ export default function Meals({addToCart, cart}){
   useEffect(() => {
    
     async function getData(){
-    
+      
       const data = await fetchingData();
       setCurrentMeals(data)
+      
     
     }
 
@@ -59,7 +60,6 @@ export default function Meals({addToCart, cart}){
         
       }
     
-    {console.log(cart)}
 
      
     </ul>
