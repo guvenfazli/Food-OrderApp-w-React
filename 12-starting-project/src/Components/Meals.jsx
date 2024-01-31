@@ -69,6 +69,8 @@ const Meals = memo(function Meals({addToCart, cart, checkOut}){
   
     
   )
+}, (prevProps, nextProps) => {
+  return prevProps.checkOut === nextProps.checkOut;
 })
 
 export default Meals;

@@ -1,6 +1,6 @@
-import { useState } from "react"
+import { useState, memo } from "react"
 
-export default function Cart({editCart, items, open, modalOption, checkOutOption}){
+const Cart = memo(function Cart({editCart, items, open, modalOption, checkOutOption}){
 
   
   let totalPrice = items.map((item) => +(item.price) * +(item.quantity))
@@ -72,4 +72,6 @@ export default function Cart({editCart, items, open, modalOption, checkOutOption
       </div>
     </dialog>
   )
-}
+})
+
+export default Cart;
