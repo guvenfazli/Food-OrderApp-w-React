@@ -18,7 +18,6 @@ function App() {
   const [cartOpen, setCartOpen] = useState(false)
   const [orderSection, setOrderSection] = useState(false)
 
- 
 
 
 
@@ -36,7 +35,7 @@ function App() {
         <button onClick={() => setCartOpen(prev => !prev)}>Cart({cart.length})</button>
       </div>
 
-      <Meals cart={cart} addToCart={setCart}/>
+      <Meals cart={cart} addToCart={setCart} checkOut={orderSection}/>
       
 
     </>

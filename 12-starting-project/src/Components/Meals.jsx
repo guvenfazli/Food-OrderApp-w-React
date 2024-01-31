@@ -1,9 +1,9 @@
 import { fetchingData } from "../utils/fetch";
-import { useState, useEffect } from "react"
+import { useState, useEffect, memo } from "react"
 
 
 
-export default function Meals({addToCart, cart}){
+const Meals = memo(function Meals({addToCart, cart, checkOut}){
   
   const [currentMeals, setCurrentMeals] = useState([]);
   const [mealLoading, setMealLoading] = useState(false)
@@ -22,6 +22,8 @@ export default function Meals({addToCart, cart}){
     getData();
   
   }, [])
+
+  console.log('selam')
   
   function selectFood(id){
     const selectedFood = currentMeals.find((food) => food.id === id)
@@ -47,7 +49,7 @@ export default function Meals({addToCart, cart}){
     
     <ul id="meals">
       
-      {mealLoading ? <p>Meals are loading...</p> : currentMeals.map((meal) =>   
+      {mealLoading ? <div className="loader-div"><span className="loader"></span></div> : currentMeals.map((meal) =>   
         <li className="meal-item" key={meal.id}>
             <article>
               <img src={`http://localhost:3000/${meal.image}`} alt={`${meal.name} photo`} />
@@ -67,4 +69,6 @@ export default function Meals({addToCart, cart}){
   
     
   )
-}
+})
+
+export default Meals;

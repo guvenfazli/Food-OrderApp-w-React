@@ -4,6 +4,7 @@ import {postingData} from '../utils/fetch.js'
 export default function Checkout({open, modalOption, items, editCart}){
   
   const [order, setOrder] = useState({})
+  const [orderingLoad, setOrderingLoad] = useState(false)
 
   let totalPrice = items.map((item) => +(item.price) * +(item.quantity))
   let total = totalPrice.reduce(function(accumulator, currentValue){
@@ -22,9 +23,17 @@ export default function Checkout({open, modalOption, items, editCart}){
   }
 
   useEffect(() => {
-    if(order.items && order.customer){
-      postingData(order)
+
+    async function addOrder(){
+      if(order.items && order.customer){
+        setOrderingLoad(true)
+        await postingData(order)
+        setOrderingLoad(false)
+      }
     }
+
+    addOrder()
+   
 
   }, [order])
 
@@ -39,7 +48,10 @@ export default function Checkout({open, modalOption, items, editCart}){
       <p>Total Amnount ${total.toFixed(2)}</p>
 
       <form onSubmit={giveOrder}>
-        <div className="control">
+        {
+          orderingLoad ? <span className="loader"></span> : 
+          <>
+          <div className="control">
 
 
           <label htmlFor="name">Full Name</label>
@@ -76,6 +88,9 @@ export default function Checkout({open, modalOption, items, editCart}){
           <button className="text-button" onClick={() => modalOption(false)}>Close</button>
           <button className="button" onSubmit={giveOrder}>Submit Order</button>
         </div>
+        </>
+        }
+       
       </form>
     </dialog>
   )
