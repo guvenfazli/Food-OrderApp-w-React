@@ -4,7 +4,7 @@ import Food from "./Food.jsx";
 
 
 
-const Meals = memo(function Meals({addToCart, cart, checkOut}){
+const Meals = memo(function Meals({addToCart, cart}){
   
   const [currentMeals, setCurrentMeals] = useState([]);
   const [mealLoading, setMealLoading] = useState(false)
@@ -24,30 +24,10 @@ const Meals = memo(function Meals({addToCart, cart, checkOut}){
   
   }, [])
 
-  console.log('selam')
   
-  function selectFood(id){
-    const selectedFood = currentMeals.find((food) => food.id === id)
-    selectedFood.quantity = 1
-    if (cart.some(food => food.id === selectedFood.id)) {
-      addToCart(prev => {
-        const updatedList = prev.map(food =>
-          food.id === selectedFood.id ? { ...food, quantity: food.quantity + 1 } : food
-        );
-        return updatedList;
-      });
-    } else {
-      addToCart(prev => {
-        const updatedList = [...prev, { ...selectedFood, quantity: 1 }];
-        return updatedList;
-      });
-    }
 
-  }
 
-  function testFunction(){
-    setTestState(prev => prev += 1)
-  }
+
   
   return(
     
@@ -55,7 +35,7 @@ const Meals = memo(function Meals({addToCart, cart, checkOut}){
     <ul id="meals">
       
       {mealLoading ? <div className="loader-div"><span className="loader"></span></div> : currentMeals.map((meal) =>   
-        <Food key={meal.id} {...meal}/>
+        <Food cart={cart} editCart={addToCart} key={meal.id} id={meal.id} currentMeals={currentMeals} {...meal}/>
         )}
 
 
@@ -64,11 +44,10 @@ const Meals = memo(function Meals({addToCart, cart, checkOut}){
      
     </ul>
 
-    <button onClick={testFunction}>Test Me Right now!</button>
     </>
   )
 }, (prevProps, nextProps) => {
-  return prevProps.cart === nextProps.cart;
+  return prevProps.currentMeals === nextProps.currentMeals;
 })
 
 export default Meals;

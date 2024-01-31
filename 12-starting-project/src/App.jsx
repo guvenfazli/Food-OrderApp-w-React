@@ -1,7 +1,7 @@
-import logo from './assets/logo.jpg'
 import Meals from './Components/Meals';
 import Cart from './Components/Cart';
 import Checkout from './Components/Checkout';
+import Header from './Components/Header';
 import { useState } from 'react';
 
 const denemeList = [
@@ -26,19 +26,13 @@ function App() {
     <>
       <Cart items={cart} open={cartOpen} modalOption={setCartOpen} editCart={setCart} checkOut={orderSection} checkOutOption={setOrderSection}/>
       <Checkout open={orderSection} modalOption={setOrderSection} items={cart} editCart={setCart}/>
-      
+      <Header openCart={setCartOpen}  cart={cart}/>
    
 
-      <div id="main-header">
-        <div id='title'>
-          <img src={logo} alt="app-logo"/> <h1>REACTFOOD</h1>
-        </div>
-
-        <button onClick={() => setCartOpen(prev => !prev)}>Cart({cart.length})</button>
-      </div>
+   
 
 
-      <Meals />
+      <Meals cart={cart} addToCart={setCart}/>
       
 
     </>

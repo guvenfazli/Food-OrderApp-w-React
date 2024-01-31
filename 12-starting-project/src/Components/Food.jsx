@@ -1,9 +1,28 @@
 import { useState, useEffect } from "react"
 
-export default function Food({id, image, name, description, price}){
+export default function Food({id, image, name, description, price, editCart, cart, currentMeals}){
+
+  
 
 
+  function selectFood(id){
+    const selectedFood = currentMeals.find((food) => food.id === id)
+    selectedFood.quantity = 1
+    if (cart.some(food => food.id === selectedFood.id)) {
+      editCart(prev => {
+        const updatedList = prev.map(food =>
+          food.id === selectedFood.id ? { ...food, quantity: food.quantity + 1 } : food
+        );
+        return updatedList;
+      });
+    } else {
+      editCart(prev => {
+        const updatedList = [...prev, { ...selectedFood, quantity: 1 }];
+        return updatedList;
+      });
+    }
 
+  }
 
 
   return (

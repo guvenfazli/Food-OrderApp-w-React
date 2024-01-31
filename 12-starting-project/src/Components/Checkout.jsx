@@ -38,7 +38,6 @@ export default function Checkout({open, modalOption, items, editCart}){
 
   }, [order])
 
-  console.log('YES, THIS RENDERED AGAIN!')
 
   return (
       
