@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, } from "react"
 
 export default function Food({id, image, name, description, price, editCart, cart, currentMeals}){
 
 
-  <h2>Veysele soru, bu component'ı customHook ile mi kullanmak lazım? Veya useContext ile, veya Reducer</h2>
   
   function selectFood(id){
     const selectedFood = currentMeals.find((food) => food.id === id)

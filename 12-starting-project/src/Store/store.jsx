@@ -1,6 +1,3 @@
-import { createContext } from "react";
+import { createContext, useState, useReducer } from "react";
 
-export const denemeContext = createContext({
-  deneme: 0,
-  changeDeneme: () => {},
-})
+
