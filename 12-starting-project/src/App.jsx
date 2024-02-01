@@ -3,16 +3,7 @@ import Cart from './Components/Cart';
 import Checkout from './Components/Checkout';
 import Header from './Components/Header';
 import { useState } from 'react';
-import { denemeContext } from './Store/store';
 
-const denemeList = [
-  {name: 'Güven', country: 'Spain', age: 25},
-  {name: 'Leila', country: 'Spain', age: 21},
-  {name: 'Onur', country: 'Germany', age: 25}
-]
-
-const test = denemeList.map((row) => {return row})
-console.log(test);
 
 function App() {
 

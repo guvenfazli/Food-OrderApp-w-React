@@ -25,25 +25,19 @@ const Meals = memo(function Meals({addToCart, cart}){
   }, [])
 
   
+  console.log('slm')
 
 
 
   
   return(
-    
     <>
     <ul id="meals">
       
       {mealLoading ? <div className="loader-div"><span className="loader"></span></div> : currentMeals.map((meal) =>   
-        <Food cart={cart} editCart={addToCart} key={meal.id} id={meal.id} currentMeals={currentMeals} {...meal}/>
+        <Food cart={cart} editCart={addToCart} key={meal.id} id={meal.id} currentMeals={currentMeals} meal={meal}/>
         )}
-
-
-    
-
-     
     </ul>
-
     </>
   )
 }, (prevProps, nextProps) => {

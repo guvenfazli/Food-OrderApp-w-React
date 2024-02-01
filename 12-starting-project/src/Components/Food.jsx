@@ -1,6 +1,6 @@
 import { useState, useEffect, } from "react"
 
-export default function Food({id, image, name, description, price, editCart, cart, currentMeals}){
+export default function Food({id, name, editCart, cart, currentMeals, meal}){
 
 
   
@@ -25,44 +25,17 @@ export default function Food({id, image, name, description, price, editCart, car
     }
     
   }
-  
-  
-  /*
-  function selectFood(id){
-    const selectedFood = currentMeals.find((food) => food.id === id)
-    selectedFood.quantity = 1
-    if (cart.some(food => food.id === selectedFood.id)) {
-      editCart(prev => {
-        const updatedList = prev.map(food =>
-          food.id === selectedFood.id ? { ...food, quantity: food.quantity + 1 } : food
-        );
-        return updatedList;
-      });
-    } else {
-      editCart(prev => {
-        const updatedList = [...prev, { ...selectedFood, quantity: 1 }];
-
-        return updatedList;
-      });
-    }
-
-  }
-  */
-  
-
- 
-  console.log(cart)
 
   return (
 
 
     
-    <li className="meal-item" key={id}>
+    <li className="meal-item" key={meal.id}>
       <article>
-        <img src={`http://localhost:3000/${image}`} alt={`${name} photo`} />
+        <img src={`http://localhost:3000/${meal.image}`} alt={`${meal.name} photo`} />
         <h3>{name}</h3>
-        <h4 className="meal-item-price">${price}</h4>
-        <p className="meal-item-description">{description}</p>
+        <h4 className="meal-item-price">${meal.price}</h4>
+        <p className="meal-item-description">{meal.description}</p>
         <button className="button meal-item-actions" onClick={() => selectFood(id)}>Add to Cart</button>
       </article>
     </li>
