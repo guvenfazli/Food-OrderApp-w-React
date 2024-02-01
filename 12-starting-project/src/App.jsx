@@ -3,6 +3,7 @@ import Cart from './Components/Cart';
 import Checkout from './Components/Checkout';
 import Header from './Components/Header';
 import { useState } from 'react';
+import { denemeContext } from './Store/store';
 
 const denemeList = [
   {name: 'Güven', country: 'Spain', age: 25},
@@ -19,6 +20,7 @@ function App() {
   const [cartOpen, setCartOpen] = useState(false)
   const [orderSection, setOrderSection] = useState(false)
 
+  
 
 
 

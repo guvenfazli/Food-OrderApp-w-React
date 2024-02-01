@@ -1,4 +1,5 @@
 import logo from '../assets/logo.jpg'
+import { denemeContext } from '../Store/store.jsx'
 
 
 export default function Header({cart, openCart}){
