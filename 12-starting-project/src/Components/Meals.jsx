@@ -25,7 +25,6 @@ const Meals = memo(function Meals({addToCart, cart}){
   }, [])
 
   
-  console.log('slm')
 
 
 

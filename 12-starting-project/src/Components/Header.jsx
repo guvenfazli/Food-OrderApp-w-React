@@ -2,6 +2,11 @@ import logo from '../assets/logo.jpg'
 
 
 export default function Header({cart, openCart}){
+
+  console.log('slm')
+
+
+
   return (
     <div id="main-header">
     <div id='title'>
