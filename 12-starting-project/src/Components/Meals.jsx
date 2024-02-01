@@ -47,7 +47,7 @@ const Meals = memo(function Meals({addToCart, cart}){
     </>
   )
 }, (prevProps, nextProps) => {
-  return prevProps.currentMeals === nextProps.currentMeals;
+  return prevProps.cart === nextProps.cart;
 })
 
 export default Meals;

@@ -10,7 +10,8 @@ const denemeList = [
   {name: 'Onur', country: 'Germany', age: 25}
 ]
 
-
+const test = denemeList.map((row) => {return row})
+console.log(test);
 
 function App() {
 
@@ -24,11 +25,11 @@ function App() {
 
   return (
     <>
-      <Cart items={cart} open={cartOpen} modalOption={setCartOpen} editCart={setCart} checkOut={orderSection} checkOutOption={setOrderSection}/>
-      <Checkout open={orderSection} modalOption={setOrderSection} items={cart} editCart={setCart}/>
+
       <Header openCart={setCartOpen}  cart={cart}/>
    
-
+      <Cart items={cart} open={cartOpen} modalOption={setCartOpen} editCart={setCart} checkOut={orderSection} checkOutOption={setOrderSection}/>
+      <Checkout open={orderSection} modalOption={setOrderSection} items={cart} editCart={setCart}/>
    
 
 

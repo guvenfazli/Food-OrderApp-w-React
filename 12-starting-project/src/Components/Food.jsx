@@ -2,9 +2,33 @@ import { useState, useEffect } from "react"
 
 export default function Food({id, image, name, description, price, editCart, cart, currentMeals}){
 
+
+  <h2>Veysele soru, bu component'ı customHook ile mi kullanmak lazım? Veya useContext ile, veya Reducer</h2>
   
+  function selectFood(id){
+    const selectedFood = currentMeals.find((food) => food.id === id)
+    selectedFood.quantity = 1
 
+    
+    if(cart.some((foodId) => foodId.id === selectedFood.id)){
+      editCart((prev) => {
+        const updatedList = prev.map(food => 
+          food.id === selectedFood.id ? {...food, quantity: food.quantity + 1} : food
+        )
 
+        return updatedList;
+      })
+    } else {
+      editCart((prev) => {
+        const updatedList = [...prev, {...selectedFood, quantity: 1}]
+        return updatedList;
+      })
+    }
+    
+  }
+  
+  
+  /*
   function selectFood(id){
     const selectedFood = currentMeals.find((food) => food.id === id)
     selectedFood.quantity = 1
@@ -18,12 +42,17 @@ export default function Food({id, image, name, description, price, editCart, car
     } else {
       editCart(prev => {
         const updatedList = [...prev, { ...selectedFood, quantity: 1 }];
+
         return updatedList;
       });
     }
 
   }
+  */
+  
 
+ 
+  console.log(cart)
 
   return (
 
