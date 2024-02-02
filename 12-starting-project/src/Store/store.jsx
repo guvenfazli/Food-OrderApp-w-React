@@ -1,25 +1,25 @@
 import { createContext, useReducer } from "react";
 
 const CartContext = createContext({
-  items: [],
+  items: 0,
   addItem: () => {},
   removeItem: (id) => {}
 });
 
 function cartReducer(state, action){
   if(action.type === 'ADD_ITEM'){
-    state.push('selam')
+    console.log(state)
   }
 
   
 
  
 
-  return state;
+
 }
 
 export function CartContextProvider({ children }) {
-  const [test, dispatchTest] = useReducer(cartReducer, []);
+  const [test, dispatchTest] = useReducer(cartReducer, 0);
 
   function addItem(){
     dispatchTest({ type: 'ADD_ITEM' })
@@ -34,7 +34,7 @@ export function CartContextProvider({ children }) {
 
 
 
-  return <CartContext.Provider value={cartContext}>{ children }</CartContext.Provider>
+  return <CartContext.Provider value={cartContext}>{ children }</CartContext.Provider>;
 }
 
 export default CartContext;

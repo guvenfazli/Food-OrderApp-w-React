@@ -44,7 +44,7 @@ export default function Food({id, name, editCart, cart, currentMeals, meal}){
         <h3>{name}</h3>
         <h4 className="meal-item-price">${meal.price}</h4>
         <p className="meal-item-description">{meal.description}</p>
-        <button className="button meal-item-actions" onClick={handleAddMealToCart}>Add to Cart</button>
+        <button className="button meal-item-actions" onClick={() => handleAddMealToCart()}>Add to Cart</button>
       </article>
     </li>
   
