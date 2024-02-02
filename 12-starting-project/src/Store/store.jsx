@@ -26,7 +26,7 @@ function cartReducer(state, action){
     
 
 
-    return {items: updatedList}
+    return {...state,items: updatedList}
   }
 
   

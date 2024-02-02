@@ -1,7 +1,12 @@
 import { useState, memo } from "react"
+import { useContext } from "react"
+import CartContext from "../Store/store.jsx"
 
-const Cart = memo(function Cart({editCart, items, open, modalOption, checkOutOption}){
+const Cart = memo(function Cart({editCart,  open, modalOption, checkOutOption}){
 
+  const cartCtx = useContext(CartContext)
+
+  const items = cartCtx.items
   
   let totalPrice = items.map((item) => +(item.price) * +(item.quantity))
   let total = totalPrice.reduce(function(accumulator, currentValue){

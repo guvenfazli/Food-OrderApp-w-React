@@ -3,9 +3,11 @@ import { useContext } from "react"
 import CartContext from "../Store/store.jsx"
 
 
-export default function Header({cart, openCart}){
+export default function Header({openCart}){
 
-  console.log('slm')
+  const cartCtx = useContext(CartContext)
+
+  const items = cartCtx.items
 
 
 
@@ -16,7 +18,7 @@ export default function Header({cart, openCart}){
       <img src={logo} alt="app-logo"/> <h1>REACTFOOD</h1>
     </div>
 
-    <button onClick={() => openCart(prev => !prev)}>Cart({cart.length})</button>
+    <button onClick={() => openCart(prev => !prev)}>Cart({items.length})</button>
   </div>
   )
 }
