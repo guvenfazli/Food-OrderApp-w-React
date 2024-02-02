@@ -1,40 +1,62 @@
 import { createContext, useReducer } from "react";
 
 const CartContext = createContext({
-  items: 0,
-  addItem: () => {},
-  removeItem: (id) => {}
+  items: [],
+  addItem: (meal) => {},
+  removeItem: () => {}
 });
 
 function cartReducer(state, action){
   if(action.type === 'ADD_ITEM'){
-    console.log(state)
+    
+    const existedItemIndex = state.items.findIndex((item) => item.id === action.meal.id)
+
+    const updatedList = [...state.items]
+
+    if (existedItemIndex > -1) {
+      const currentItem = updatedList[existedItemIndex]
+      const updateItem = {
+        ...currentItem,
+        quantity: currentItem.quantity + 1
+      }
+      updatedList[existedItemIndex] = updateItem;
+    } else {
+      updatedList.push({...action.meal, quantity: 1})
+    }
+    
+
+
+    return {items: updatedList}
   }
 
   
-
- 
-
-
+  return state
 }
 
-export function CartContextProvider({ children }) {
-  const [test, dispatchTest] = useReducer(cartReducer, 0);
 
-  function addItem(){
-    dispatchTest({ type: 'ADD_ITEM' })
+
+export function CartContextProvider({ children }) {
+  const [test, dispatchTest] = useReducer(cartReducer, {items: []});
+
+  function addItem(meal){
+    dispatchTest({ type: 'ADD_ITEM', meal })
+  }
+
+  function removeItem(){
+    dispatchTest({ type: 'REMOVE_ITEM' })
   }
 
   const cartContext = {
-    items: test,
-    addItem
+    items: test.items,
+    addItem,
+    removeItem
   }
 
 
+  console.log(test)
 
 
-
-  return <CartContext.Provider value={cartContext}>{ children }</CartContext.Provider>;
+  return (<CartContext.Provider value={cartContext}>{ children }</CartContext.Provider>);
 }
 
 export default CartContext;

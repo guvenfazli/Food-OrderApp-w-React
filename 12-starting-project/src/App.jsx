@@ -3,7 +3,7 @@ import Cart from './Components/Cart';
 import Checkout from './Components/Checkout';
 import Header from './Components/Header';
 import { useState } from 'react';
-import { CartContextProvider } from './Store/store';
+import { CartContextProvider } from './Store/store.jsx';
 
 
 function App() {

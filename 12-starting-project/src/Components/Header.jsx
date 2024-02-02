@@ -1,9 +1,12 @@
 import logo from '../assets/logo.jpg'
+import { useContext } from "react"
+import CartContext from "../Store/store.jsx"
 
 
 export default function Header({cart, openCart}){
 
   console.log('slm')
+
 
 
 
