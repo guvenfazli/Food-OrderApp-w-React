@@ -9,6 +9,7 @@ export default function Food({id, name, editCart, cart, currentMeals, meal}){
     cartCtx.addItem(meal);
   }
 
+ 
   const deneme = cartCtx.items
   
   
@@ -41,7 +42,7 @@ export default function Food({id, name, editCart, cart, currentMeals, meal}){
     <li className="meal-item" key={meal.id}>
       <article>
         <img src={`http://localhost:3000/${meal.image}`} alt={`${meal.name} photo`} />
-        <h3>{name}</h3>
+        <h3>{meal.name}</h3>
         <h4 className="meal-item-price">${meal.price}</h4>
         <p className="meal-item-description">{meal.description}</p>
         <button className="button meal-item-actions" onClick={handleAddMealToCart}>Add to Cart</button>

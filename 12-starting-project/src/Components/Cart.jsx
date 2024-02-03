@@ -1,6 +1,7 @@
 import { useState, memo } from "react"
 import { useContext } from "react"
 import CartContext from "../Store/store.jsx"
+import CartItem from "./CartItem.jsx"
 
 const Cart = memo(function Cart({editCart,  open, modalOption, checkOutOption}){
 
@@ -46,6 +47,9 @@ const Cart = memo(function Cart({editCart,  open, modalOption, checkOutOption}){
     checkOutOption(true)
   }
 
+  function addMore(item){
+    cartCtx.addMore(item)
+  }
 
   
   
@@ -53,15 +57,8 @@ const Cart = memo(function Cart({editCart,  open, modalOption, checkOutOption}){
     <dialog className="modal cart" open={open}>
       <h2>Your Cart</h2>
         <ul>
-          {items.map((item, index) => 
-            <li key={item.id} className="cart-item">
-              <p>{item.name} - {item.quantity} x ${item.price}</p>
-              <div className="cart-item-actions">
-                <button onClick={() => editQuantity(item.id, '-', index)}>-</button>
-                <p>{item.quantity}</p>
-                <button onClick={}>+</button>
-              </div>
-            </li>
+          {items.map((item) => 
+            <CartItem key={item.id} item={item}/>
           )}
 
         </ul>
