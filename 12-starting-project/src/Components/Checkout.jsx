@@ -29,6 +29,11 @@ export default function Checkout() {
     userProgressCtx.hideCheckout();
   }
 
+  function handleFinish(){
+    userProgressCtx.hideCheckout();
+    cartCtx.clearCart();
+  }
+
   function handleSubmit(event) {
     event.preventDefault();
 
