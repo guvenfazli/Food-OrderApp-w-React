@@ -37,9 +37,9 @@ const Cart = memo(function Cart({editCart,  open, modalOption, checkOutOption}){
         })
     }
 
-    
-   
   } 
+
+ 
 
   function proceedToCheckOut(){
     modalOption(false)
@@ -59,7 +59,7 @@ const Cart = memo(function Cart({editCart,  open, modalOption, checkOutOption}){
               <div className="cart-item-actions">
                 <button onClick={() => editQuantity(item.id, '-', index)}>-</button>
                 <p>{item.quantity}</p>
-                <button onClick={() => editQuantity(item.id, '+', index)}>+</button>
+                <button onClick={}>+</button>
               </div>
             </li>
           )}

@@ -3,7 +3,9 @@ import { createContext, useReducer } from "react";
 const CartContext = createContext({
   items: [],
   addItem: (meal) => {},
-  removeItem: () => {}
+  removeItem: () => {},
+  addMore: () => {},
+  removeItem: () => {},
 });
 
 function cartReducer(state, action){
@@ -24,9 +26,43 @@ function cartReducer(state, action){
       updatedList.push({...action.meal, quantity: 1})
     }
     
+    return {...state,items: updatedList}
+  }
 
+  if(action.type === 'ADD_MORE'){
+    const existedItemIndex = state.items.findIndex((item) => item.id === action.meal.id)
+
+    const updatedList = [...state.items]
+
+    if (existedItemIndex > -1) {
+      const currentItem = updatedList[existedItemIndex]
+      const updateItem = {
+        ...currentItem,
+        quantity: currentItem.quantity + 1
+      }
+      updatedList[existedItemIndex] = updateItem;
+    }
 
     return {...state,items: updatedList}
+
+  }
+
+  if(action.type === 'REMOVE_MORE'){
+    const existedItemIndex = state.items.findIndex((item) => item.id === action.meal.id)
+
+    const updatedList = [...state.items]
+
+    if (existedItemIndex > -1) {
+      const currentItem = updatedList[existedItemIndex]
+      const updateItem = {
+        ...currentItem,
+        quantity: currentItem.quantity - 1
+      }
+      updatedList[existedItemIndex] = updateItem;
+    }
+
+    return {...state,items: updatedList}
+
   }
 
   
@@ -46,9 +82,19 @@ export function CartContextProvider({ children }) {
     dispatchTest({ type: 'REMOVE_ITEM' })
   }
 
+  function addMore(meal){
+    dispatchTest({ type: 'ADD_MORE', meal })
+  }
+
+  function removeItem(meal){
+    dispatchTest({ type: 'REMOVE_MORE', meal })
+  }
+
   const cartContext = {
     items: test.items,
     addItem,
+    removeItem,
+    addMore,
     removeItem
   }
 
