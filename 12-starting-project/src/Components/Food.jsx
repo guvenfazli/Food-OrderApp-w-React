@@ -1,38 +1,12 @@
 import { useContext } from "react"
 import CartContext from "../Store/store.jsx"
 
-export default function Food({id, name, editCart, cart, currentMeals, meal}){
+export default function Food({meal}){
 
   const cartCtx = useContext(CartContext)
 
   function handleAddMealToCart(){
     cartCtx.addItem(meal);
-  }
-
- 
-  const deneme = cartCtx.items
-  
-  
-  function selectFood(id){
-    const selectedFood = currentMeals.find((food) => food.id === id)
-    selectedFood.quantity = 1
-
-    
-    if(cart.some((foodId) => foodId.id === selectedFood.id)){
-      editCart((prev) => {
-        const updatedList = prev.map(food => 
-          food.id === selectedFood.id ? {...food, quantity: food.quantity + 1} : food
-        )
-
-        return updatedList;
-      })
-    } else {
-      editCart((prev) => {
-        const updatedList = [...prev, {...selectedFood, quantity: 1}]
-        return updatedList;
-      })
-    }
-    
   }
 
   return (

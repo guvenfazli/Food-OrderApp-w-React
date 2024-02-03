@@ -90,8 +90,8 @@ export function CartContextProvider({ children }) {
     dispatchTest({ type: 'ADD_MORE', meal })
   }
 
-  function removeItem(meal, index){
-    dispatchTest({ type: 'REMOVE_MORE', meal, index })
+  function removeItem(meal){
+    dispatchTest({ type: 'REMOVE_MORE', meal})
   }
 
   const cartContext = {

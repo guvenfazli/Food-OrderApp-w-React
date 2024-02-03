@@ -1,9 +1,15 @@
 import { useState, useEffect } from "react";
 import {postingData} from '../utils/fetch.js'
+import CartContext from "../Store/store.jsx"
+import { useContext } from "react";
 
 
-export default function Checkout({open, modalOption, items, editCart}){
+export default function Checkout({open, modalOption}){
   
+  const cartCtx = useContext(CartContext)
+
+  const items = cartCtx.items
+
   const [order, setOrder] = useState({})
   const [orderingLoad, setOrderingLoad] = useState(false)
 

@@ -3,7 +3,7 @@ import { useContext } from "react"
 import CartContext from "../Store/store.jsx"
 import CartItem from "./CartItem.jsx"
 
-const Cart = memo(function Cart({  open, modalOption, checkOutOption}){
+const Cart = memo(function Cart({ open, modalOption, checkOutOption }){
 
   const cartCtx = useContext(CartContext)
 
