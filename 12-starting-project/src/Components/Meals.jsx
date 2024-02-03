@@ -27,7 +27,6 @@ const Meals = memo(function Meals({addToCart, cart}){
   
 
 
-
   
   return(
     <>

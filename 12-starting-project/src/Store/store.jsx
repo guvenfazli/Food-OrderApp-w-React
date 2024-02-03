@@ -61,6 +61,10 @@ function cartReducer(state, action){
       updatedList[existedItemIndex] = updateItem;
     }
 
+    if(updatedList[existedItemIndex].quantity === 0){
+      updatedList.splice(existedItemIndex, 1)
+    }
+
     return {...state,items: updatedList}
 
   }
@@ -86,8 +90,8 @@ export function CartContextProvider({ children }) {
     dispatchTest({ type: 'ADD_MORE', meal })
   }
 
-  function removeItem(meal){
-    dispatchTest({ type: 'REMOVE_MORE', meal })
+  function removeItem(meal, index){
+    dispatchTest({ type: 'REMOVE_MORE', meal, index })
   }
 
   const cartContext = {

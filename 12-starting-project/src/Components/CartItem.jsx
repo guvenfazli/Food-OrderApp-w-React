@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import CartContext from "../Store/store.jsx"
 
-export default function CartItem({item}){
+export default function CartItem({item, index}){
   
   const cartCtx = useContext(CartContext)
 
@@ -10,7 +10,7 @@ export default function CartItem({item}){
   }
 
   function removeMore(){
-    cartCtx.removeItem(item)
+    cartCtx.removeItem(item, index)
   }
   
   

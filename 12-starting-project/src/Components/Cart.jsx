@@ -1,9 +1,9 @@
-import { useState, memo } from "react"
+import { memo } from "react"
 import { useContext } from "react"
 import CartContext from "../Store/store.jsx"
 import CartItem from "./CartItem.jsx"
 
-const Cart = memo(function Cart({editCart,  open, modalOption, checkOutOption}){
+const Cart = memo(function Cart({  open, modalOption, checkOutOption}){
 
   const cartCtx = useContext(CartContext)
 
@@ -14,51 +14,18 @@ const Cart = memo(function Cart({editCart,  open, modalOption, checkOutOption}){
     return accumulator + currentValue;
   }, 0)
 
-  function editQuantity(id, quantityOption, index){
-    const sameFood = items.find((food) => food.id === id)
-
-    if(quantityOption === ('+')){
-        editCart((prev) => {
-          const updatedList = prev.map(food =>
-            food.id === sameFood.id ? { ...food, quantity: food.quantity + 1 } : food
-          );
-          return updatedList;
-        })
-      
-    } else if(quantityOption === ('-')){
-        editCart((prev) => {
-          const updatedList = prev.map(food =>
-            food.id === sameFood.id ? { ...food, quantity: food.quantity - 1 } : food
-          );
-
-          if(updatedList.some(food => food.quantity === 0)){
-            updatedList.splice(index, 1)
-          }
-          return updatedList;
-        })
-    }
-
-  } 
-
- 
 
   function proceedToCheckOut(){
     modalOption(false)
     checkOutOption(true)
   }
 
-  function addMore(item){
-    cartCtx.addMore(item)
-  }
-
-  
-  
   return (
     <dialog className="modal cart" open={open}>
       <h2>Your Cart</h2>
         <ul>
-          {items.map((item) => 
-            <CartItem key={item.id} item={item}/>
+          {items.map((item, index) => 
+            <CartItem index={index} key={item.id} item={item}/>
           )}
 
         </ul>
