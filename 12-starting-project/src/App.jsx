@@ -5,6 +5,11 @@ import { CartContextProvider } from "./store/CartContext";
 import {UserProgressContextProvider} from "./store/UserProgressContext";
 import Checkout from "./Components/Checkout";
 
+const denemeObj = {students: ['Leila', 'Onur', 'Eren'], workers: ['Güven', 'Hüseyin', 'Dilek']}
+const updatedStudens = ['Leila', 'Onur', 'Eren', 'Fevzi']
+const newObj = {...denemeObj, students: updatedStudens}
+console.log(newObj);
+
 function App() {
   return (
     <UserProgressContextProvider>
