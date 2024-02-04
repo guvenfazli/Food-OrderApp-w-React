@@ -8,10 +8,13 @@ import Checkout from "./Components/Checkout";
 
 const denemeList = [1,5,2,7,4,9,6,7]
 
-console.log(denemeList.reduce(function(prevNumber, newNumber){
-  return prevNumber + newNumber
-}, 0))
- 
+const bigNumbers = denemeList.reduce((initial, newValue) => {
+  return initial + newValue
+}, 0)
+
+console.log(bigNumbers)
+
+
 
 
 
