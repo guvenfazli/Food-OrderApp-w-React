@@ -59,8 +59,6 @@ export function CartContextProvider({children}){
   
   const [cart, dispatchCartAction] = useReducer(cartReducer, {items: []});
 
-  const [closeNow, dispatchCloseAll] = useReducer(cartReducer, false)
-
   function addItem(item) {
     dispatchCartAction({type: 'ADD_ITEM', item})
   }
