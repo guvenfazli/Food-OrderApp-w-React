@@ -309,10 +309,7 @@ h1 {
   position: relative;
   border: 1px solid red;
   height: 70px;
-  transition: 2s;
- 
-
-  
+  transition: 2s 
 }
 
 
@@ -321,10 +318,6 @@ h1 {
   height: 150px;
   transition: 2s;
   border: 1px solid red;
-  
-
-  
-
 }
 
 .onlyName{

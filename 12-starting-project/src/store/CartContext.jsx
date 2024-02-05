@@ -4,7 +4,7 @@ const CartContext = createContext({
   items: [],
   addItem: (meal) => {},
   removeItem: (id) => {},
-  clearCart: () => {}
+  clearCart: () => {},
 });
 
 function cartReducer(state,action) {
@@ -49,6 +49,8 @@ function cartReducer(state,action) {
   }
 
 
+
+
   return state
 
 }
@@ -56,6 +58,8 @@ function cartReducer(state,action) {
 export function CartContextProvider({children}){
   
   const [cart, dispatchCartAction] = useReducer(cartReducer, {items: []});
+
+  const [closeNow, dispatchCloseAll] = useReducer(cartReducer, false)
 
   function addItem(item) {
     dispatchCartAction({type: 'ADD_ITEM', item})
@@ -70,11 +74,12 @@ export function CartContextProvider({children}){
   }
 
 
+
   const cartContext = {
     items: cart.items,
     addItem,
     removeItem,
-    clearCart
+    clearCart,
   }
   
   
