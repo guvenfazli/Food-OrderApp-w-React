@@ -9,7 +9,7 @@ import Checkout from "./Components/Checkout";
 function App() {
   return (
     <>
-    <img src="readme/Homepage.png" alt="" />
+    
     <UserProgressContextProvider>
       <CartContextProvider>
         <Header />
