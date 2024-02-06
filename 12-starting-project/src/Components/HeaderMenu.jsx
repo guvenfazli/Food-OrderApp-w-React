@@ -24,7 +24,7 @@ export default function HeaderMenu({ children }) {
 
 
       <div onMouseOver={() => setDrop(true)} onMouseLeave={() => setDrop(false)}  className={styleList}>
-        {dropList[children].map((button) => <button >{button}</button>)}
+        {dropList[children].map((button) => <button key={button}>{button}</button>)}
       </div>
 
       
