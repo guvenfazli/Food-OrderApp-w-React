@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&family=Lato:wght@400;700&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 
 
 * {
@@ -305,31 +307,41 @@ h1 {
   }
 } 
 
-.test-div{
-  position: relative;
-  border: 1px solid red;
-  height: 70px;
-  transition: 2s 
-}
-
-
-
-.openDiv{
+.new-header{
+  width: 100%;
   height: 150px;
-  transition: 2s;
   border: 1px solid red;
 }
 
-.onlyName{
-  position: absolute;
-  opacity: 0;
-  transition: 2s;
+.new-header button{
+  font-family: 'Press Start 2P', system-ui;
+  height: 40px;
   
+
 }
 
-.countryIncluded{
-  position: absolute;
+.inactive-drop{
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transition: 0.5s;
+  height: 0px;
+  visibility: hidden;
+}
+
+.active-drop{
+  display: flex;
+  flex-direction: column;
   opacity: 1;
-  transition: 3s;
+  transition: 0.5s;
+  height: 120px;
+  visibility: visible;
 }
 
+.active-drop button{
+  font-family: 'Press Start 2P', system-ui;
+}
+
+.inactive-drop button{
+  font-family: 'Press Start 2P', system-ui;
+}
