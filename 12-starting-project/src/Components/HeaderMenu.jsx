@@ -16,22 +16,20 @@ export default function HeaderMenu({ children }) {
 
   const styleList = drop ? 'active-drop' : 'inactive-drop'
 
- 
 
- 
-  
+
+
+
 
   return (
-    <div onMouseOver={() => setDrop(true)} onMouseLeave={() => setDrop(false)} style={{display: 'flex', flexDirection: 'column', position: 'relative', border: '1px solid red', width: '180px'}}>
+    <div onMouseOver={() => setDrop(true)} onMouseLeave={() => setDrop(false)} style={{ display: 'flex', flexDirection: 'column', position: 'relative', border: '1px solid red', width: '180px' }}>
       <button>{children}</button>
 
-      <div onMouseOver={() => setDrop(true)} onMouseLeave={() => setDrop(false)}  className={styleList}>
+      <div onMouseOver={() => setDrop(true)} onMouseLeave={() => setDrop(false)} className={styleList}>
         {dropList[children].map((button) => <button key={button}>{button}</button>)}
-       
-
       </div>
 
-      
+
     </div>
   )
 }
