@@ -5,6 +5,9 @@ const CartContext = createContext({
   addItem: (meal) => {},
   removeItem: (id) => {},
   clearCart: () => {},
+  testRed: false,
+  testReducer: () => {},
+
 });
 
 function cartReducer(state,action) {
@@ -48,6 +51,9 @@ function cartReducer(state,action) {
     return {...state, items: updatedItems};
   }
 
+  if(action.type === 'TEST_REDUCER'){
+    state = !state
+  }
 
 
 
@@ -58,6 +64,8 @@ function cartReducer(state,action) {
 export function CartContextProvider({children}){
   
   const [cart, dispatchCartAction] = useReducer(cartReducer, {items: []});
+
+  const [testReduce, dispatchTestReduce] = useReducer(cartReducer, false)
 
   function addItem(item) {
     dispatchCartAction({type: 'ADD_ITEM', item})
@@ -71,10 +79,16 @@ export function CartContextProvider({children}){
     dispatchCartAction({type: 'CLEAR_CART'})
   }
 
+  function testReducer(){
+    dispatchTestReduce({type: 'TEST_REDUCER'})
+  }
+
 
 
   const cartContext = {
     items: cart.items,
+    testRed: testReduce,
+    testReducer,
     addItem,
     removeItem,
     clearCart,

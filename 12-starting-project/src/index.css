@@ -311,13 +311,26 @@ h1 {
   width: 100%;
   height: 150px;
   border: 1px solid red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .new-header button{
   font-family: 'Press Start 2P', system-ui;
   height: 40px;
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: 0.5s;
+}
 
-
+.new-header button:hover{
+  background-color: white;
+  color: black;
+  
 }
 
 .inactive-drop{
@@ -327,6 +340,14 @@ h1 {
   transition: 0.5s;
   height: 0px;
   visibility: hidden;
+  position: absolute;
+  overflow:visible;
+  top: 27%;
+  left: 0;
+  width: 100%;
+  justify-content: center;
+
+
 }
 
 .active-drop{
@@ -336,12 +357,46 @@ h1 {
   transition: 0.5s;
   height: 120px;
   visibility: visible;
+  top: 27%;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  justify-content: center;
+  
+
+
 }
 
 .active-drop button{
   font-family: 'Press Start 2P', system-ui;
+  background-color: black;
+  color: white;
+  border: none;
+  height: 50px;
+  transition: 0.5s;
+  cursor: pointer;
+  
 }
 
 .inactive-drop button{
   font-family: 'Press Start 2P', system-ui;
+  background-color: black;
+  color: white;
+  border: none;
+  height: 0px;
+  cursor: pointer;
+  transition: 0.5s;
+  z-index: 2;
+
+
+}
+
+.class-test{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  
 }
