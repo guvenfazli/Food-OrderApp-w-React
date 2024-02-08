@@ -3,7 +3,6 @@ import HeaderMenu from "./HeaderMenu"
 export default function NewHeader() {
 
 
-
   return (
     <header className="new-header">
       <div className="class-test">
