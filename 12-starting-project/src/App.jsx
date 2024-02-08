@@ -23,11 +23,7 @@ function App() {
 
   function denemeFunc(rowIndex, columnIndex){
     setPlayerMark((prev) => {
-      if(prev === 'X'){
-        return 'O'
-      } else if(prev === 'O'){
-        return 'X'
-      }
+      return prev === 'X' ? 'O' : 'X'
     })
 
     setGameBoard((prev) => {
@@ -42,7 +38,7 @@ function App() {
       <CartContextProvider>
         <Header />
         <NewHeader />
-        <div className="deneme-div">{gameBoard.map((row, rowIndex) => row.map((person, columnIndex) => <div className="deneme-div"><button onClick={() => denemeFunc(rowIndex, columnIndex)} disabled={gameBoard[rowIndex][columnIndex] === 'X' || gameBoard[rowIndex][columnIndex] === 'O' }>{person}</button></div>))}</div>
+        <div className="deneme-div">{gameBoard.map((row, rowIndex) => row.map((person, columnIndex) => <div className="deneme-div"><button onClick={() => denemeFunc(rowIndex, columnIndex)} disabled={gameBoard[rowIndex][columnIndex] === 'X' ||gameBoard[rowIndex][columnIndex] === 'O' }>{person}</button></div>))}</div>
 
         <Meals />
         <Cart />
