@@ -5,9 +5,7 @@ import { CartContextProvider } from "./store/CartContext";
 import { UserProgressContextProvider } from "./store/UserProgressContext";
 import Checkout from "./Components/Checkout";
 import NewHeader from "./Components/NewHeader";
-import { useRef, useState } from "react";
-
-
+import { useState } from "react";
 
 
 function App() {
@@ -21,10 +19,15 @@ function App() {
   ]
   )
 
+  const userLog = {playerMove: playerMark, placement: []}
+
   function denemeFunc(rowIndex, columnIndex){
     setPlayerMark((prev) => {
       return prev === 'X' ? 'O' : 'X'
     })
+
+    userLog.placement.push(rowIndex, columnIndex)
+    
 
     setGameBoard((prev) => {
       const updatedBoard = [...prev]
@@ -32,6 +35,12 @@ function App() {
       return updatedBoard
     })
   }
+
+  console.log(userLog)
+
+
+
+  
   
   return (
     <UserProgressContextProvider>
