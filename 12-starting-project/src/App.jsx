@@ -42,7 +42,7 @@ function App() {
       <CartContextProvider>
         <Header />
         <NewHeader />
-        <div className="deneme-div">{gameBoard.map((row, rowIndex) => row.map((person, columnIndex) => <div className="deneme-div"><button onClick={() => denemeFunc(rowIndex, columnIndex)}>{person}</button></div>))}</div>
+        <div className="deneme-div">{gameBoard.map((row, rowIndex) => row.map((person, columnIndex) => <div className="deneme-div"><button onClick={() => denemeFunc(rowIndex, columnIndex)} disabled={gameBoard[rowIndex][columnIndex] === 'X' || gameBoard[rowIndex][columnIndex] === 'O' }>{person}</button></div>))}</div>
 
         <Meals />
         <Cart />
