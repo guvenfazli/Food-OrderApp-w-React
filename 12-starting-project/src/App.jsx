@@ -5,39 +5,9 @@ import { CartContextProvider } from "./store/CartContext";
 import { UserProgressContextProvider } from "./store/UserProgressContext";
 import Checkout from "./Components/Checkout";
 import NewHeader from "./Components/NewHeader";
-import { useState } from "react";
 
 
 function App() {
-
-  const [playerMark, setPlayerMark] = useState('X')
-
-  const [gameBoard, setGameBoard] = useState([
-    ['Güven', 'Leila', 'Rüya'],
-    ['Onur', 'Melis', 'Betül'],
-    ['Furkan', 'Zeynep', 'Canan']
-  ]
-  )
-
-  const userLog = {playerMove: playerMark, placement: []}
-
-  function denemeFunc(rowIndex, columnIndex){
-    setPlayerMark((prev) => {
-      return prev === 'X' ? 'O' : 'X'
-    })
-
-    userLog.placement.push(rowIndex, columnIndex)
-    
-
-    setGameBoard((prev) => {
-      const updatedBoard = [...prev]
-      updatedBoard[rowIndex][columnIndex] = playerMark
-      return updatedBoard
-    })
-  }
-
-  console.log(userLog)
-
 
 
   
@@ -47,8 +17,6 @@ function App() {
       <CartContextProvider>
         <Header />
         <NewHeader />
-        <div className="deneme-div">{gameBoard.map((row, rowIndex) => row.map((person, columnIndex) => <div className="deneme-div"><button onClick={() => denemeFunc(rowIndex, columnIndex)} disabled={gameBoard[rowIndex][columnIndex] === 'X' ||gameBoard[rowIndex][columnIndex] === 'O' }>{person}</button></div>))}</div>
-
         <Meals />
         <Cart />
         <Checkout />
