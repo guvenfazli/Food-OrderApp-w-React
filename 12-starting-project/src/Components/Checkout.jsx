@@ -57,7 +57,7 @@ export default function Checkout() {
           <Button>Submit Order</Button></>);
 
   if (isSending){
-    actions = <span>Sending Data...</span>
+    actions = <span>Sending Data..</span>
   }
 
   if (data && !error) {
