@@ -6,7 +6,7 @@ const CartContext = createContext({
   removeItem: (id) => {},
   clearCart: () => {},
   testRed: false,
-  testReducer: () => {}
+  testReducer: () => {},
 
 });
 
