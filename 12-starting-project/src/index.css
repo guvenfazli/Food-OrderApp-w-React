@@ -253,7 +253,7 @@ h1 {
   border: none;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
   padding: 1rem;
-  width: 80%;
+  width: 100%;
   max-width: 40rem;
   animation: fade-slide-up 0.3s ease-out forwards;
 }

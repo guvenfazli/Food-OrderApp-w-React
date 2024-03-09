@@ -15,6 +15,7 @@ export default function Meals() {
     return <Error title={'Failed to fetch meals'} error={error} />
   }
 
+  console.log('Malenia çok zor')
 
 
 
